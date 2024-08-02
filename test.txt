@@ -1,0 +1,81 @@
+// function renderTasks(tasks: Task[]) {
+//   list.innerHTML = ""; // Clear the list before rendering new tasks
+
+//   tasks.map((task) => {
+//     const li = document.createElement("li");
+//     const label = document.createElement("label");
+//     const checkbox = document.createElement("input");
+
+//     checkbox.type = "checkbox";
+//     checkbox.checked = task.completed;
+//     checkbox.addEventListener("change", function () {
+//       task.completed = checkbox.checked;
+//       // saveTask();
+//       if (checkbox.checked) {
+//         remainingTasks--;
+//       } else {
+//         remainingTasks++;
+//       }
+//       renderTasks(taskList);
+//       remaining.innerText = `${remainingTasks} items left`;
+//     });
+
+//     // label.append(checkbox, task.title);
+//     label.append(task.title);
+//     li.append(checkbox, label);
+
+//     list?.append(li);
+
+//   });
+
+// }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+function createTaskElement(task: Task): HTMLLIElement {
+  const li = document.createElement("li");
+  const checkboxWrapper = document.createElement("div");
+  checkboxWrapper.classList.add("checkbox-wrapper-11");
+
+  const checkbox = document.createElement("input");
+  checkbox.id = `${task.id}`;
+  checkbox.type = "checkbox";
+  checkbox.name = "r";
+  checkbox.value = task.id;
+  checkbox.checked = task.completed;
+
+  checkbox.addEventListener("change", function () {
+    task.completed = checkbox.checked;
+    // saveTask();
+    if (checkbox.checked) {
+      remainingTasks--;
+    } else {
+      remainingTasks++;
+    }
+    remaining.innerText = `${remainingTasks} items left`;
+  });
+  renderTasks(taskList);
+
+  const label = document.createElement("label");
+  label.htmlFor = `${task.id}`;
+  label.innerText = task.title;
+
+  checkboxWrapper.append(checkbox, label);
+  li.append(checkboxWrapper);
+
+  return li;
+}
+// adq
+
+function renderTasks(tasks: Task[]) {
+  list.innerHTML = ""; // Clear the list before rendering new tasks
+
+  tasks.map((task) => {
+    const li = createTaskElement(task);
+    console.log(li);
+    list?.append(li);
+    // remaining.innerText = `${remainingTasks} items left`;
+  });
+  renderTasks(taskList);
+  remaining.innerText = `${remainingTasks} items left`;
+}

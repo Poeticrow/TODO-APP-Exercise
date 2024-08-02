@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/d1f77bff0d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./dist/index.js" defer></script>
+    <title>TODO APP</title>
+  </head>
+  <body>
+    <main>
+      <div class="top"></div>
+      <div class="bottom"></div>
+      <div id="container">
+        <div class="title">
+          <h1>TODO</h1>
+          <button id="darkModeToggle"><i class="fa-solid fa-moon"></i></button>
+        </div>
+        <form id="new-task-form">
+          <input type="text" id="new-task-name" />
+        </form>
+        <ul id="task-list"></ul>
+        <nav id="nav">
+          <span id="remaining"></span>
+          <div id="toggle-menu">
+            <span class="status-filter">All</span
+            ><span class="status-filter">Active</span
+            ><span class="status-filter">Completed</span>
+          </div>
+          <button id="clear-completed">Clear Completed</button>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>
